@@ -5,7 +5,7 @@ metadata:
   name: service-a
   namespace: staging-example
 spec:
-  replicas: 5
+  replicas: 1
   selector:
     matchLabels:
       app: service-a
