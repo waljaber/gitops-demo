@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-b
+  namespace: staging-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-b
+  template:
+    metadata:
+      labels:
+        app: service-b
+    spec:
+      containers:
+      - name: service-b
+        image: busybox:1.33.1
+        command: ["nc", "-lkv", "-p", "8080", "-e", "/bin/sh"]
+        ports:
+        - containerPort: 8080
